@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchStudents } from "../store";
+import { updateStudents } from "../store";
 import { connect } from "react-redux";
 
 const _Students = ({ students, universities }) => {
@@ -9,16 +9,16 @@ const _Students = ({ students, universities }) => {
 
       {students.map((currentStudent) => {
         return (
-          <div>
-            <img src={currentStudent.image}></img>
-            <ul key={currentStudent.id}>
-              <li
-                id="student-first-li"
-                onClick={() => {
-                  select(currentStudent);
-                }}
-              >
-                {`${currentStudent.firstName} - attends the ${universities
+          <div key={currentStudent.id}>
+            <img
+              onClick={() => {
+                select(currentStudent);
+              }}
+              src={currentStudent.image}
+            ></img>
+            <ul>
+              <li>
+                {`${currentStudent.firstName} attends the ${universities
                   .map((university) => {
                     if (university.id === currentStudent.universityId) {
                       return university.name;

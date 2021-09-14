@@ -2,7 +2,7 @@ const conn = require("./conn");
 const Student = require("./Student");
 const University = require("./University");
 
-Student.belongsTo(University, { as: "unversity" });
+Student.belongsTo(University, { as: "university" });
 University.hasMany(Student, { as: "students", foreignKey: "universityId" });
 
 const syncAndSeed = async () => {
@@ -62,6 +62,15 @@ const syncAndSeed = async () => {
       "https://www.clevergirlfinance.com/wp-content/uploads/2020/06/college-student-budget.jpg",
     gpa: "4.0",
     universityId: uf.id,
+  });
+
+  const debug = await Student.create({
+    firstName: "debug",
+    lastName: "debug",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/1/17/Common_blue_damselfly_%286001619383%29.jpg",
+    email: "debug@theinsect",
+    universityId: usf.id,
   });
 
   console.log("Seeding done.");
