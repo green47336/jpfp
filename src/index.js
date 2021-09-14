@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
 import { connect, Provider } from "react-redux";
 import store, { fetchStudents, fetchUniversities } from "./store";
-import Students from "./Students";
-import Universities from "./Universities";
+import Students from "./components/Students";
+import Universities from "./components/Universities";
 
 class _App extends Component {
   componentDidMount() {
@@ -11,14 +11,14 @@ class _App extends Component {
     this.props.fetchUniversities();
   }
   render() {
-    const { students, universities } = this.props;
+    //const { students, universities } = this.props;
     return (
       <div>
         <h1>Home</h1>
         <div id="home">
           <hr />
           <Students />
-          <Universities />
+          {/* <Universities /> */}
         </div>
       </div>
     );
