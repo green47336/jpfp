@@ -30,6 +30,8 @@ const _Universities = ({ students, universities }) => {
                     : "enrollments"
                 })`}
               </li>
+              <li>{`Slogan: ${currentUniversity.slogan}`}</li>
+              <li>{`Address: ${currentUniversity.address}`}</li>
             </ul>
           </div>
         );
