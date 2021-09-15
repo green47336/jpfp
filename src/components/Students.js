@@ -2,6 +2,7 @@ import React from "react";
 import { updateStudents } from "../store";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import CreateStudent from "./CreateStudent";
 
 const _Students = ({ students, universities }) => {
   return (
@@ -31,6 +32,9 @@ const _Students = ({ students, universities }) => {
           </div>
         );
       })}
+      <div id="create-student">
+        <CreateStudent />
+      </div>
     </div>
   );
 };
