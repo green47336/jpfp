@@ -11,13 +11,31 @@ const _SingleUniversity = ({ students, universities, history, match }) => {
   const theUniversity = universities.find(
     (university) => university.id === match.params.id * 1
   );
-  const theStudent = students.find(
-    (student) => student.id === theUniversity.id
+  const theStudents = students.filter(
+    (student) => student.universityId === theUniversity.id
   );
 
   return (
     <div id="single-university-module">
       <p>Details for {theUniversity.name}</p>
+      <ul>
+        <li>
+          <img src={theUniversity.image}></img>
+        </li>
+        <li>Slogan: {theUniversity.slogan}</li>
+        <li>Address: {theUniversity.address}</li>
+      </ul>
+
+      <div>
+        Enrollees:
+        <ul>
+          {theStudents.map((student) => (
+            <Link to={`/students/${student.id}`}>
+              <li key={student.id}>{student.firstName}</li>
+            </Link>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
