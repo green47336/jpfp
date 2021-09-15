@@ -8,26 +8,17 @@ const _Universities = ({ students, universities }) => {
       <h3>Universities</h3>
 
       {universities.map((currentUniversity) => {
+        const univEnrollmentLength = students.filter((student) => {
+          return student.universityId === currentUniversity.id;
+        }).length;
         return (
           <div key={currentUniversity.id}>
             <img src={currentUniversity.image}></img>
             <ul>
-              <li
-                onClick={() => {
-                  select(currentUniversity);
-                }}
-              >
+              <li>
                 {/* TODO: DRY this out */}
-                {`${currentUniversity.name} (${
-                  students.filter((student) => {
-                    return student.universityId === currentUniversity.id;
-                  }).length
-                } ${
-                  students.filter((student) => {
-                    return student.universityId === currentUniversity.id;
-                  }).length === 1
-                    ? "enrollment"
-                    : "enrollments"
+                {`${currentUniversity.name} (${univEnrollmentLength} ${
+                  univEnrollmentLength === 1 ? "enrollment" : "enrollments"
                 })`}
               </li>
               <li>{`Slogan: ${currentUniversity.slogan}`}</li>

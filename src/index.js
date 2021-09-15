@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { connect, Provider } from "react-redux";
 import store, { fetchStudents, fetchUniversities } from "./store";
 import Students from "./components/Students";
+import SingleStudent from "./components/SingleStudent";
 import Universities from "./components/Universities";
 
 //TODO break App into its own component file
@@ -28,7 +29,8 @@ class _App extends Component {
               </Link>
             </nav>
             <Switch>
-              <Route path="/students" component={Students} />
+              <Route exact path="/students" component={Students} />
+              <Route path="/students/:id" component={SingleStudent} />
               <Route path="/universities" component={Universities} />
             </Switch>
           </div>

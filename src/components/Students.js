@@ -1,6 +1,7 @@
 import React from "react";
 import { updateStudents } from "../store";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const _Students = ({ students, universities }) => {
   return (
@@ -10,12 +11,9 @@ const _Students = ({ students, universities }) => {
       {students.map((currentStudent) => {
         return (
           <div key={currentStudent.id}>
-            <img
-              onClick={() => {
-                select(currentStudent);
-              }}
-              src={currentStudent.image}
-            ></img>
+            <Link to={`/students/${currentStudent.id}`}>
+              <img src={currentStudent.image}></img>
+            </Link>
             <ul>
               <li>
                 {`${currentStudent.firstName} attends the ${universities
