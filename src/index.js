@@ -6,12 +6,13 @@ import store, { fetchStudents, fetchUniversities } from "./store";
 import Students from "./components/Students";
 import SingleStudent from "./components/SingleStudent";
 import Universities from "./components/Universities";
+import SingleUniversity from "./components/SingleUniversity";
 
 //TODO break App into its own component file
 class _App extends Component {
   componentDidMount() {
-    this.props.fetchStudents();
     this.props.fetchUniversities();
+    this.props.fetchStudents();
   }
   render() {
     return (
@@ -31,7 +32,8 @@ class _App extends Component {
             <Switch>
               <Route exact path="/students" component={Students} />
               <Route path="/students/:id" component={SingleStudent} />
-              <Route path="/universities" component={Universities} />
+              <Route exact path="/universities" component={Universities} />
+              <Route path="/universities/:id" component={SingleUniversity} />
             </Switch>
           </div>
         </div>
