@@ -10,7 +10,6 @@ const University = conn.define("university", {
   },
   address: {
     type: STRING,
-    unique: true,
   },
   slogan: {
     type: STRING,

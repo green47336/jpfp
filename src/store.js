@@ -17,7 +17,7 @@ const students = (state = [], action) => {
     return action.students;
   }
   if (action.type === "CREATE_STUDENT") {
-    return [...state, action.student];
+    return [...state, action.newStudent];
   }
   // if (action.type === "DELETE_STUDENT") {
   //   return state.map((student) => (student.id === action.student.id ? action.student : student));
@@ -31,7 +31,7 @@ const universities = (state = [], action) => {
     return action.universities;
   }
   if (action.type === "CREATE_UNIVERSITY") {
-    return [...state, action.university];
+    return [...state, action.newUniversity];
   }
   // if (action.type === "DELETE_STUDENT") {
   //   return state.map((university) => (university.id === action.university.id ? action.university : university));

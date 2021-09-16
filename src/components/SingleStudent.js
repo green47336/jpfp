@@ -34,6 +34,7 @@ const _SingleStudent = ({ students, universities, history, match }) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
   return state;
 };
 

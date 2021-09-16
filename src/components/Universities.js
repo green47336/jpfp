@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import CreateUniversity from "./CreateUniversity";
 
 const _Universities = ({ students, universities }) => {
+  // universities.map((university) => {
+  //     if(!university.id)
+  // })
   return (
     <div>
       <div id="universities-module">
@@ -18,7 +21,6 @@ const _Universities = ({ students, universities }) => {
               <img src={currentUniversity.image}></img>
               <ul>
                 <li>
-                  {/* TODO: DRY this out */}
                   {`${currentUniversity.name} (${univEnrollmentLength} ${
                     univEnrollmentLength === 1 ? "enrollment" : "enrollments"
                   })`}

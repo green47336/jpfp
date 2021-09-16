@@ -15,6 +15,7 @@ class CreateUniversity extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+
   onChange(ev) {
     const name = ev.target.name;
     const value = ev.target.value;
@@ -25,7 +26,6 @@ class CreateUniversity extends Component {
 
   handleSubmit(ev) {
     ev.preventDefault();
-    console.log(typeof this.state.name);
     this.props.createUniversity({ ...this.state });
     console.log("handleSubmit hit");
   }
@@ -57,9 +57,16 @@ class CreateUniversity extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch, { history }) => ({
-  createUniversity: (university) =>
-    dispatch(createUniversity(university, history)),
+const mapStateToProps = (state, ownProps) => {
+  const { history } = ownProps;
+  return { state, history };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  createUniversity: (university) => {
+    console.log(`ownProps: ${JSON.stringify(ownProps)}`);
+    dispatch(createUniversity(university, ownProps.history));
+  },
 });
 
-export default connect((state) => state, mapDispatchToProps)(CreateUniversity);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateUniversity);
