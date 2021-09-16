@@ -11,11 +11,7 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    res.send(
-      await University.create({
-        name: req.body.name,
-      })
-    );
+    res.status(201).send(await University.create(req.body));
   } catch (ex) {
     next(ex);
   }

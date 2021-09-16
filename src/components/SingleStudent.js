@@ -37,6 +37,7 @@ const mapStateToProps = (state, ownProps) => {
   return state;
 };
 
+//TODO delete if unused
 const mapDispatchToProps = (dispatch) => {
   return {};
 };

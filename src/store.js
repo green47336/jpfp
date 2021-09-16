@@ -78,4 +78,18 @@ export const createStudent = (student, history) => {
   };
 };
 
+export const createUniversity = (university, history) => {
+  return async (dispatch) => {
+    const { data: newUniversity } = await axios.post(
+      "/api/universities",
+      university
+    );
+    dispatch({
+      type: CREATE_UNIVERSITY,
+      newUniversity,
+    });
+    history.push("/");
+  };
+};
+
 export default store;

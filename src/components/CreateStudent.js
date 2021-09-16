@@ -4,15 +4,15 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class CreateStudent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       firstName: "",
       lastName: "",
       email: "",
       image: "",
       gpa: "",
-      university: "",
+      universityId: 0,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -51,17 +51,24 @@ class CreateStudent extends Component {
           <label htmlFor="image">Image URL: </label>
           <input name="image" value={image} onChange={onChange} />
 
-          <button type="submit">Submit</button>
+          <label htmlFor="university">University: </label>
+          <select name="university" value={university} onChange={onChange}>
+            {this.props.universities.map((university) => (
+              <option key={university.id} value={university.id * 1}>
+                {university.name}
+              </option>
+            ))}
+          </select>
 
-          {/* <label htmlFor="university" */}
+          <button type="submit">Create</button>
         </form>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch, { hisotry }) => ({
+const mapDispatchToProps = (dispatch, { history }) => ({
   createStudent: (student) => dispatch(createStudent(student, history)),
 });
 
-export default connect(null, mapDispatchToProps)(CreateStudent);
+export default connect((state) => state, mapDispatchToProps)(CreateStudent);
