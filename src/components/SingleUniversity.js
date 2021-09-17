@@ -30,9 +30,9 @@ const _SingleUniversity = ({ students, universities, history, match }) => {
         Enrollees:
         <ul>
           {theStudents.map((student) => (
-            <Link to={`/students/${student.id}`}>
-              <li key={student.id}>{student.firstName}</li>
-            </Link>
+            <li key={student.id}>
+              <Link to={`/students/${student.id}`}>{student.firstName}</Link>
+            </li>
           ))}
         </ul>
       </div>

@@ -22,6 +22,7 @@ class CreateUniversity extends Component {
     const change = {};
     change[name] = value;
     this.setState(change);
+    console.log(this.props);
   }
 
   handleSubmit(ev) {

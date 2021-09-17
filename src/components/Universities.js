@@ -1,6 +1,7 @@
 import React from "react";
 import { updateStudents } from "../store";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import CreateUniversity from "./CreateUniversity";
 
 const _Universities = ({ students, universities }) => {
@@ -18,7 +19,9 @@ const _Universities = ({ students, universities }) => {
           }).length;
           return (
             <div key={currentUniversity.id}>
-              <img src={currentUniversity.image}></img>
+              <Link to={`/universities/${currentUniversity.id}`}>
+                <img src={currentUniversity.image}></img>
+              </Link>
               <ul>
                 <li>
                   {`${currentUniversity.name} (${univEnrollmentLength} ${
@@ -32,7 +35,7 @@ const _Universities = ({ students, universities }) => {
           );
         })}
       </div>
-      <CreateUniversity />
+      <CreateUniversity history={history} />
     </div>
   );
 };

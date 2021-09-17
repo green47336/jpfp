@@ -6,10 +6,12 @@ import axios from "axios";
 const LOAD_STUDENTS = "LOAD_STUDENTS";
 const CREATE_STUDENT = "CREATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
+const UPDATE_STUDENT = "UPDATE_STUDENT";
 
 const LOAD_UNIVERSITIES = "LOAD_UNIVERSITIES";
 const CREATE_UNIVERSITY = "CREATE_UNIVERSITY";
 const DELETE_UNIVERSITY = "DELETE_UNIVERSITY";
+const UPDATE_UNIVERSITY = "UPDATE_UNVIERSITY";
 
 const students = (state = [], action) => {
   //TODO make switch
@@ -19,9 +21,14 @@ const students = (state = [], action) => {
   if (action.type === "CREATE_STUDENT") {
     return [...state, action.newStudent];
   }
-  // if (action.type === "DELETE_STUDENT") {
-  //   return state.map((student) => (student.id === action.student.id ? action.student : student));
-  // }
+  if (action.type === "DELETE_STUDENT") {
+    return state.filter((student) => student.id !== action.student.id);
+  }
+  if (action.type === "UPDATE_STUDENT") {
+    return state.map((student) =>
+      student.id === action.student.id ? action.student : student
+    );
+  }
   return state;
 };
 
@@ -33,9 +40,14 @@ const universities = (state = [], action) => {
   if (action.type === "CREATE_UNIVERSITY") {
     return [...state, action.newUniversity];
   }
-  // if (action.type === "DELETE_STUDENT") {
-  //   return state.map((university) => (university.id === action.university.id ? action.university : university));
-  // }
+  if (action.type === "DELETE_UNIVERSITY") {
+    return state.filter((university) => university.id !== action.university.id);
+  }
+  if (action.type === "UPDATE_UNIVERSITY") {
+    return state.map((university) =>
+      university.id === action.university.id ? action.university : university
+    );
+  }
   return state;
 };
 
@@ -89,6 +101,18 @@ export const createUniversity = (university, history) => {
       newUniversity,
     });
     history.push("/");
+  };
+};
+
+export const deleteStudent = (id, history) => {
+  return async (dispatch) => {
+    console.log(id);
+    await axios.delete(`/api/students/${id}`);
+    dispatch({
+      type: DELETE_STUDENT,
+      student: id * 1,
+    });
+    //history.push("/students");
   };
 };
 
