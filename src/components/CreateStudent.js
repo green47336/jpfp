@@ -23,23 +23,20 @@ class CreateStudent extends Component {
     const change = {};
     change[name] = value;
     this.setState(change);
-    console.log(this.state.universityId);
   }
 
   handleSubmit(ev) {
     ev.preventDefault();
     this.props.createStudent({ ...this.state });
-    console.log("handleSubmit hit");
   }
   render() {
     const { firstName, lastName, email, image, universityId } = this.state;
     const { handleSubmit, onChange } = this;
 
     return (
-      <div>
-        <hr />
-        <p>Create New Student</p>
-        <form id="student-form" onSubmit={handleSubmit}>
+      <div id="student-form">
+        <h3>Create New Student</h3>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name: </label>
           <input name="firstName" value={firstName} onChange={onChange} />
 
@@ -62,7 +59,12 @@ class CreateStudent extends Component {
             ))}
           </select>
 
-          <button type="submit">Create</button>
+          <button
+            disabled={!firstName || !lastName || !universityId}
+            type="submit"
+          >
+            Create
+          </button>
         </form>
       </div>
     );
