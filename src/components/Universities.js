@@ -14,7 +14,7 @@ const _Universities = ({
   //     if(!university.id)
   // })
   return (
-    <div>
+    <div id="universities-page">
       <div id="universities-module">
         <h3>Universities</h3>
 

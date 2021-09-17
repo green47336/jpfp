@@ -11,7 +11,7 @@ const UPDATE_STUDENT = "UPDATE_STUDENT";
 const LOAD_UNIVERSITIES = "LOAD_UNIVERSITIES";
 const CREATE_UNIVERSITY = "CREATE_UNIVERSITY";
 const DELETE_UNIVERSITY = "DELETE_UNIVERSITY";
-const UPDATE_UNIVERSITY = "UPDATE_UNVIERSITY";
+const UPDATE_UNIVERSITY = "UPDATE_UNIVERSITY";
 
 const students = (state = [], action) => {
   //TODO make switch
@@ -25,9 +25,11 @@ const students = (state = [], action) => {
     return state.filter((student) => student.id !== action.id);
   }
   if (action.type === "UPDATE_STUDENT") {
-    return state.map((student) =>
-      student.id === action.student.id ? action.student : student
-    );
+    return state.map((student) => {
+      return student.id === action.updatedStudent.id
+        ? action.updatedStudent
+        : student;
+    });
   }
   return state;
 };
@@ -120,6 +122,21 @@ export const deleteUniversity = (id, history) => {
     dispatch({
       type: DELETE_UNIVERSITY,
       id: id * 1,
+    });
+  };
+};
+
+export const updateStudent = (student, history) => {
+  return async (dispatch) => {
+    const { data: updatedStudent } = await axios.put(
+      `/api/students/${student.id}`,
+      student
+    );
+    console.log(`updatedStudent: ${updatedStudent}`);
+    console.log(`student: ${student}`);
+    dispatch({
+      type: UPDATE_STUDENT,
+      updatedStudent,
     });
   };
 };

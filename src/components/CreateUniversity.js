@@ -28,17 +28,15 @@ class CreateUniversity extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
     this.props.createUniversity({ ...this.state });
-    console.log("handleSubmit hit");
   }
   render() {
     const { name, image, address, slogan } = this.state;
     const { handleSubmit, onChange } = this;
 
     return (
-      <div>
-        <hr />
+      <div id="university-form">
         <p>Create New University</p>
-        <form id="university-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name: </label>
           <input name="name" value={name} onChange={onChange} />
 
@@ -64,7 +62,6 @@ class CreateUniversity extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   createUniversity: (university) => {
-    console.log(`ownprops.historyyy ${JSON.stringify(ownProps.history)}`);
     dispatch(createUniversity(university, ownProps.history));
   },
 });

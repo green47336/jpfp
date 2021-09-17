@@ -19,10 +19,18 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
   try {
-    console.log(req.params);
     const university = await University.findByPk(req.params.id);
     await university.destroy();
     res.send(university);
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    const university = await University.findByPk(req.params.id);
+    res.send(await university.update(req.body));
   } catch (ex) {
     next(ex);
   }

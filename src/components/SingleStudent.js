@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import UpdateStudent from "./UpdateStudent";
 
 const _SingleStudent = ({ students, universities, history, match }) => {
   //Ensures we don't crash on a hard reload
@@ -29,6 +30,7 @@ const _SingleStudent = ({ students, universities, history, match }) => {
           <li>{`Attends: ${theUniversity.name}`}</li>
         </Link>
       </ul>
+      <UpdateStudent history={history} student={theStudent} />
     </div>
   );
 };

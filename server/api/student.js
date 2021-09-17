@@ -27,4 +27,13 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+router.put("/:id", async (req, res, next) => {
+  try {
+    const student = await Student.findByPk(req.params.id);
+    res.send(await student.update(req.body));
+  } catch (ex) {
+    next(ex);
+  }
+});
+
 module.exports = router;
