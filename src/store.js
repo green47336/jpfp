@@ -47,7 +47,9 @@ const universities = (state = [], action) => {
   }
   if (action.type === "UPDATE_UNIVERSITY") {
     return state.map((university) =>
-      university.id === action.university.id ? action.university : university
+      university.id === action.updatedUniversity.id
+        ? action.updatedUniversity
+        : university
     );
   }
   return state;
@@ -137,6 +139,19 @@ export const updateStudent = (student, history) => {
     dispatch({
       type: UPDATE_STUDENT,
       updatedStudent,
+    });
+  };
+};
+
+export const updateUniversity = (university, history) => {
+  return async (dispatch) => {
+    const { data: updatedUniversity } = await axios.put(
+      `/api/universities/${university.id}`,
+      university
+    );
+    dispatch({
+      type: UPDATE_UNIVERSITY,
+      updatedUniversity,
     });
   };
 };

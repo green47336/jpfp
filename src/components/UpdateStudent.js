@@ -45,7 +45,7 @@ class UpdateStudent extends Component {
     this.props.updateStudent({ ...this.state });
   }
   render() {
-    const { firstName, lastName, email, image, universityId } = this.state;
+    const { firstName, lastName, email, gpa, image, universityId } = this.state;
     const { handleSubmit, onChange } = this;
 
     return (
@@ -60,6 +60,9 @@ class UpdateStudent extends Component {
 
           <label htmlFor="email">Email: </label>
           <input name="email" value={email} onChange={onChange} />
+
+          <label htmlFor="gpa">GPA: </label>
+          <input name="gpa" value={gpa} onChange={onChange} />
 
           <label htmlFor="image">Image URL: </label>
           <input name="image" value={image} onChange={onChange} />
