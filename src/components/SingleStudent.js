@@ -13,7 +13,7 @@ const _SingleStudent = ({ students, universities, history, match }) => {
     (student) => student.id === match.params.id * 1
   );
   const theUniversity = universities.find(
-    (university) => university.id === theStudent.universityId
+    (university) => university.id === theStudent.universityId * 1
   );
 
   return (

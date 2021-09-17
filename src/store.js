@@ -134,8 +134,6 @@ export const updateStudent = (student, history) => {
       `/api/students/${student.id}`,
       student
     );
-    console.log(`updatedStudent: ${updatedStudent}`);
-    console.log(`student: ${student}`);
     dispatch({
       type: UPDATE_STUDENT,
       updatedStudent,
