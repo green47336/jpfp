@@ -22,7 +22,7 @@ const students = (state = [], action) => {
     return [...state, action.newStudent];
   }
   if (action.type === "DELETE_STUDENT") {
-    return state.filter((student) => student.id !== action.student.id);
+    return state.filter((student) => student.id !== action.id);
   }
   if (action.type === "UPDATE_STUDENT") {
     return state.map((student) =>
@@ -41,7 +41,7 @@ const universities = (state = [], action) => {
     return [...state, action.newUniversity];
   }
   if (action.type === "DELETE_UNIVERSITY") {
-    return state.filter((university) => university.id !== action.university.id);
+    return state.filter((university) => university.id !== action.id);
   }
   if (action.type === "UPDATE_UNIVERSITY") {
     return state.map((university) =>
@@ -110,9 +110,19 @@ export const deleteStudent = (id, history) => {
     await axios.delete(`/api/students/${id}`);
     dispatch({
       type: DELETE_STUDENT,
-      student: id * 1,
+      id: id * 1,
     });
-    //history.push("/students");
+  };
+};
+
+export const deleteUniversity = (id, history) => {
+  return async (dispatch) => {
+    console.log(id);
+    await axios.delete(`/api/universities/${id}`);
+    dispatch({
+      type: DELETE_UNIVERSITY,
+      id: id * 1,
+    });
   };
 };
 

@@ -49,8 +49,8 @@ const _Students = ({ students, universities, deleteStudent, history }) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    deleteStudent: (student) => {
-      dispatch(deleteStudent(student, ownProps.history));
+    deleteStudent: (id) => {
+      dispatch(deleteStudent(id, history));
     },
   };
 };

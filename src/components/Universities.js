@@ -1,10 +1,10 @@
 import React from "react";
-import { updateStudents } from "../store";
+import { updateUniversities, deleteUniversity } from "../store";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CreateUniversity from "./CreateUniversity";
 
-const _Universities = ({ students, universities }) => {
+const _Universities = ({ students, universities, deleteUniversity }) => {
   // universities.map((university) => {
   //     if(!university.id)
   // })
@@ -22,6 +22,14 @@ const _Universities = ({ students, universities }) => {
               <Link to={`/universities/${currentUniversity.id}`}>
                 <img src={currentUniversity.image}></img>
               </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  deleteUniversity(currentUniversity.id);
+                }}
+              >
+                X
+              </button>
               <ul>
                 <li>
                   {`${currentUniversity.name} (${univEnrollmentLength} ${
@@ -41,7 +49,11 @@ const _Universities = ({ students, universities }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    deleteUniversity: (id) => {
+      dispatch(deleteUniversity(id, history));
+    },
+  };
 };
 
 const Universities = connect(
