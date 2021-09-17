@@ -4,7 +4,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CreateUniversity from "./CreateUniversity";
 
-const _Universities = ({ students, universities, deleteUniversity }) => {
+const _Universities = ({
+  students,
+  universities,
+  deleteUniversity,
+  history,
+}) => {
   // universities.map((university) => {
   //     if(!university.id)
   // })

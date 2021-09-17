@@ -106,7 +106,6 @@ export const createUniversity = (university, history) => {
 
 export const deleteStudent = (id, history) => {
   return async (dispatch) => {
-    console.log(id);
     await axios.delete(`/api/students/${id}`);
     dispatch({
       type: DELETE_STUDENT,
@@ -117,7 +116,6 @@ export const deleteStudent = (id, history) => {
 
 export const deleteUniversity = (id, history) => {
   return async (dispatch) => {
-    console.log(id);
     await axios.delete(`/api/universities/${id}`);
     dispatch({
       type: DELETE_UNIVERSITY,

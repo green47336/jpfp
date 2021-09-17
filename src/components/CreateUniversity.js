@@ -22,7 +22,7 @@ class CreateUniversity extends Component {
     const change = {};
     change[name] = value;
     this.setState(change);
-    console.log(this.props);
+    console.log(this.props.history);
   }
 
   handleSubmit(ev) {
@@ -58,16 +58,15 @@ class CreateUniversity extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const { history } = ownProps;
-  return { state, history };
-};
+// const mapStateToProps = (state, ownProps) => {
+//   return state;
+// };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   createUniversity: (university) => {
-    console.log(`ownProps: ${JSON.stringify(ownProps)}`);
+    console.log(`ownprops.historyyy ${JSON.stringify(ownProps.history)}`);
     dispatch(createUniversity(university, ownProps.history));
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateUniversity);
+export default connect(null, mapDispatchToProps)(CreateUniversity);

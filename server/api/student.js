@@ -11,7 +11,17 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    res.status(201).send(await Student.create(req.body));
+    console.log(req.body);
+    res.status(201).send(
+      await Student.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        image: req.body.image,
+        gpa: req.body.gpa,
+        universityId: req.body.universityId * 1,
+      })
+    );
   } catch (ex) {
     next(ex);
   }

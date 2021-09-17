@@ -23,6 +23,7 @@ class CreateStudent extends Component {
     const change = {};
     change[name] = value;
     this.setState(change);
+    console.log(this.state);
   }
 
   handleSubmit(ev) {
@@ -31,7 +32,7 @@ class CreateStudent extends Component {
     console.log("handleSubmit hit");
   }
   render() {
-    const { firstName, lastName, email, image, university } = this.state;
+    const { firstName, lastName, email, image, universityId } = this.state;
     const { handleSubmit, onChange } = this;
 
     return (
@@ -51,8 +52,8 @@ class CreateStudent extends Component {
           <label htmlFor="image">Image URL: </label>
           <input name="image" value={image} onChange={onChange} />
 
-          <label htmlFor="university">University: </label>
-          <select name="university" value={university} onChange={onChange}>
+          <label htmlFor="universityId">University: </label>
+          <select name="universityId" value={universityId} onChange={onChange}>
             {this.props.universities.map((university) => (
               <option key={university.id} value={university.id}>
                 {university.name}
