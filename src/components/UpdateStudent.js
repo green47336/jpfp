@@ -19,17 +19,33 @@ class UpdateStudent extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  async componentDidUpdate(prevProps) {
+    if (!prevProps.student.id && this.props.student.id) {
+      this.setState({
+        id: student.id,
+        firstName: student.firstName,
+        lastName: student.lastName,
+        email: student.email,
+        image: student.image,
+        gpa: student.gpa,
+        universityId: student.universityId,
+      });
+    }
+  }
+
   async componentDidMount() {
     const { student } = this.props;
-    this.setState({
-      id: student.id,
-      firstName: student.firstName,
-      lastName: student.lastName,
-      email: student.email,
-      image: student.image,
-      gpa: student.gpa,
-      universityId: student.universityId,
-    });
+    if (student.id) {
+      this.setState({
+        id: student.id,
+        firstName: student.firstName,
+        lastName: student.lastName,
+        email: student.email,
+        image: student.image,
+        gpa: student.gpa,
+        universityId: student.universityId,
+      });
+    }
   }
 
   onChange(ev) {

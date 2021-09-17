@@ -28,7 +28,10 @@ const _Students = ({ students, universities, deleteStudent, history }) => {
                 <li>
                   {`${currentStudent.firstName} attends the ${universities
                     .map((university) => {
-                      if (university.id === currentStudent.universityId) {
+                      if (
+                        university.id * 1 ===
+                        currentStudent.universityId * 1
+                      ) {
                         return university.name;
                       }
                     })

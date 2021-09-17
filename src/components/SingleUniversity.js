@@ -61,11 +61,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, { history }) => {
-  console.log(`dispatch is: ${dispatch}`);
   return {
     updateStudent: (student) => {
-      console.log("update student firing");
-      console.log(`student: ${JSON.stringify(student)}`);
       return dispatch(updateStudent(student, history));
     },
   };
