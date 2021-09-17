@@ -1,4 +1,4 @@
-const { STRING } = require("sequelize");
+const { STRING, TEXT } = require("sequelize");
 const Sequelize = require("sequelize");
 const conn = require("./conn");
 
@@ -10,9 +10,10 @@ const University = conn.define("university", {
   },
   address: {
     type: STRING,
+    allowNull: false,
   },
   slogan: {
-    type: STRING,
+    type: TEXT,
   },
   image: {
     type: STRING,

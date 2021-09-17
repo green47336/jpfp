@@ -1,9 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { updateStudent } from "../store";
 import UpdateUniversity from "./UpdateUniversity";
 
-const _SingleUniversity = ({ students, universities, history, match }) => {
+const _SingleUniversity = ({
+  students,
+  universities,
+  history,
+  match,
+  updateStudent,
+}) => {
   //Ensures we don't crash on a hard reload
   if (students.length === 0 || universities.length === 0) {
     return "Loading...";
@@ -33,6 +40,13 @@ const _SingleUniversity = ({ students, universities, history, match }) => {
           {theStudents.map((student) => (
             <li key={student.id}>
               <Link to={`/students/${student.id}`}>{student.firstName}</Link>
+              <button
+                onClick={() => {
+                  updateStudent({ ...student, universityId: NaN });
+                }}
+              >
+                Unregister
+              </button>
             </li>
           ))}
         </ul>
@@ -46,8 +60,15 @@ const mapStateToProps = (state, ownProps) => {
   return state;
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
+const mapDispatchToProps = (dispatch, { history }) => {
+  console.log(`dispatch is: ${dispatch}`);
+  return {
+    updateStudent: (student) => {
+      console.log("update student firing");
+      console.log(`student: ${JSON.stringify(student)}`);
+      return dispatch(updateStudent(student, history));
+    },
+  };
 };
 
 const SingleUniversity = connect(

@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const { STRING } = require("sequelize");
+const { STRING, DECIMAL } = require("sequelize");
 const conn = require("./conn");
 
 const Student = conn.define("student", {
@@ -18,7 +18,7 @@ const Student = conn.define("student", {
     type: STRING,
   },
   gpa: {
-    type: STRING,
+    type: DECIMAL,
   },
 });
 

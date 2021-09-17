@@ -16,6 +16,8 @@ const _SingleStudent = ({ students, universities, history, match }) => {
     (university) => university.id === theStudent.universityId * 1
   );
 
+  //if (!theUniversity) return "Loading...";
+
   return (
     <div id="single-student-module">
       <p>{`Details for ${theStudent.firstName}`}</p>
@@ -26,9 +28,14 @@ const _SingleStudent = ({ students, universities, history, match }) => {
         <li>{`Full name: ${theStudent.firstName} ${theStudent.lastName}`}</li>
         <li>{`Email: ${theStudent.email}`}</li>
         <li>{`GPA: ${theStudent.gpa}`}</li>
-        <Link to={`/universities/${theUniversity.id}`}>
-          <li>{`Attends: ${theUniversity.name}`}</li>
-        </Link>
+
+        {theUniversity ? (
+          <Link to={`/universities/${theUniversity.id}`}>
+            <li>{`Attends: ${theUniversity.name}`}</li>
+          </Link>
+        ) : (
+          "Attends: Currently Unregistered"
+        )}
       </ul>
       <UpdateStudent history={history} student={theStudent} />
     </div>

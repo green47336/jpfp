@@ -134,6 +134,8 @@ export const updateStudent = (student, history) => {
       `/api/students/${student.id}`,
       student
     );
+    console.log(`dispatch is thunk: ${dispatch}`);
+
     dispatch({
       type: UPDATE_STUDENT,
       updatedStudent,

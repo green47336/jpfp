@@ -67,9 +67,10 @@ const syncAndSeed = async () => {
   const debug = await Student.create({
     firstName: "debug",
     lastName: "debug",
+    email: "debug@theinsect",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/1/17/Common_blue_damselfly_%286001619383%29.jpg",
-    email: "debug@theinsect",
+    gpa: "0.0",
     universityId: usf.id,
   });
 
