@@ -12,7 +12,7 @@ class CreateStudent extends Component {
       email: "",
       image: "",
       gpa: "",
-      universityId: 0,
+      universityId: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -23,7 +23,7 @@ class CreateStudent extends Component {
     const change = {};
     change[name] = value;
     this.setState(change);
-    console.log(this.state);
+    console.log(this.state.universityId);
   }
 
   handleSubmit(ev) {
@@ -54,6 +54,7 @@ class CreateStudent extends Component {
 
           <label htmlFor="universityId">University: </label>
           <select name="universityId" value={universityId} onChange={onChange}>
+            <option value={""}>--Select University--</option>
             {this.props.universities.map((university) => (
               <option key={university.id} value={university.id}>
                 {university.name}
