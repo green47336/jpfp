@@ -17,7 +17,7 @@ const _Universities = ({
 
         {universities.map((currentUniversity) => {
           const univEnrollmentLength = students.filter((student) => {
-            return student.universityId === currentUniversity.id;
+            return student.universityId * 1 === currentUniversity.id * 1;
           }).length;
           return (
             <div key={currentUniversity.id}>

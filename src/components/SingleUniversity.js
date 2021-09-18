@@ -20,7 +20,7 @@ const _SingleUniversity = ({
     (university) => university.id === match.params.id * 1
   );
   const theStudents = students.filter(
-    (student) => student.universityId === theUniversity.id
+    (student) => student.universityId * 1 === theUniversity.id
   );
 
   return (
