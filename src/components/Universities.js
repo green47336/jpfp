@@ -1,5 +1,5 @@
 import React from "react";
-import { updateUniversities, deleteUniversity } from "../store";
+import { deleteUniversity } from "../store";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CreateUniversity from "./CreateUniversity";
@@ -10,9 +10,6 @@ const _Universities = ({
   deleteUniversity,
   history,
 }) => {
-  // universities.map((university) => {
-  //     if(!university.id)
-  // })
   return (
     <div id="universities-page">
       <div id="universities-module">

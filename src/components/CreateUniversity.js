@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { createUniversity } from "../store";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 class CreateUniversity extends Component {
   constructor(props) {

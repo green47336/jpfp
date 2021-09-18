@@ -1,5 +1,5 @@
 import React from "react";
-import { updateStudents, deleteStudent } from "../store";
+import { deleteStudent } from "../store";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CreateStudent from "./CreateStudent";
@@ -55,7 +55,7 @@ const _Students = ({ students, universities, deleteStudent, history }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     deleteStudent: (id) => {
       dispatch(deleteStudent(id, history));

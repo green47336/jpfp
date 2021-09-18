@@ -8,7 +8,6 @@ import SingleStudent from "./components/SingleStudent";
 import Universities from "./components/Universities";
 import SingleUniversity from "./components/SingleUniversity";
 
-//TODO break App into its own component file
 class _App extends Component {
   componentDidMount() {
     this.props.fetchUniversities();

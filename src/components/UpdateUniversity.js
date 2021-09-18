@@ -63,7 +63,9 @@ class UpdateUniversity extends Component {
           <div>
             <hr />
           </div>
-          <button type="submit">Update</button>
+          <button disabled={!name} type="submit">
+            Update
+          </button>
         </form>
       </div>
     );
