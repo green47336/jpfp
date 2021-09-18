@@ -47,8 +47,9 @@ class UpdateUniversity extends Component {
       <div id="update-university-form">
         <hr />
         <h3>Update University</h3>
+        <p>Required field *</p>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name">Name: *</label>
           <input name="name" value={name} onChange={onChange} />
 
           <label htmlFor="image">Image URL: </label>

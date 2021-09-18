@@ -26,7 +26,7 @@ class _App extends Component {
                 <button>{`Students (${this.props.students.length})`}</button>
               </Link>
               <Link to="/universities">
-                <button>{`Campuses (${this.props.universities.length})`}</button>
+                <button>{`Universities (${this.props.universities.length})`}</button>
               </Link>
             </nav>
             <Switch>
