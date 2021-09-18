@@ -64,13 +64,13 @@ const syncAndSeed = async () => {
     universityId: uf.id,
   });
 
-  const debug = await Student.create({
-    firstName: "debug",
-    lastName: "debug",
-    email: "debug@theinsect",
+  const dennis = await Student.create({
+    firstName: "Dennis",
+    lastName: "Harper",
+    email: "dennis@usf",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/1/17/Common_blue_damselfly_%286001619383%29.jpg",
-    gpa: "0.0",
+      "https://www.midsouthfcu.org/wp-content/uploads/2019/07/male-student-300x202.jpeg",
+    gpa: "3.8",
     universityId: usf.id,
   });
 
