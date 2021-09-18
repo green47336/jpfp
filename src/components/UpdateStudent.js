@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { updateStudent } from "../store";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 class UpdateStudent extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ class UpdateStudent extends Component {
         email: student.email,
         image: student.image,
         gpa: student.gpa,
-        universityId: student.universityId,
+        universityId: student.universityId || "",
       });
     }
   }
@@ -43,7 +42,7 @@ class UpdateStudent extends Component {
         email: student.email,
         image: student.image,
         gpa: student.gpa,
-        universityId: student.universityId,
+        universityId: student.universityId || "",
       });
     }
   }
