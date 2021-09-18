@@ -74,6 +74,26 @@ const syncAndSeed = async () => {
     universityId: usf.id,
   });
 
+  const brenda = await Student.create({
+    firstName: "Brenda",
+    lastName: "West",
+    email: "brenda@uf",
+    image:
+      "https://freedesignfile.com/upload/2017/01/A-young-female-student-sitting-at-the-desk-HD-picture.jpg",
+    gpa: "3.2",
+    universityId: uf.id,
+  });
+
+  const amy = await Student.create({
+    firstName: "Riya",
+    lastName: "Patel",
+    email: "riya@usf",
+    image:
+      "https://scl.cornell.edu/sites/scl/files/person/2020-10/RiyaPatel.jpg",
+    gpa: "3.6",
+    universityId: usf.id,
+  });
+
   console.log("Seeding done.");
 };
 
