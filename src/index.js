@@ -18,7 +18,7 @@ class _App extends Component {
     return (
       <Router>
         <div>
-          <h1>Campus Info</h1>
+          <h1>Academic Database</h1>
           <div id="main">
             <hr />
             <nav>
