@@ -42,7 +42,7 @@ const _SingleStudent = ({ students, universities, history, match }) => {
             }
           </li>
         ) : (
-          "Attends: Currently Unregistered"
+          <li>{"Attends: Currently Unregistered"}</li>
         )}
       </ul>
       <UpdateStudent history={history} student={theStudent} />
