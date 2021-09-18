@@ -61,7 +61,7 @@ const _SingleUniversity = ({
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return state;
 };
 

@@ -40,18 +40,10 @@ const _SingleStudent = ({ students, universities, history, match }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return state;
 };
 
-//TODO delete if unused
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-const SingleStudent = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(_SingleStudent);
+const SingleStudent = connect(mapStateToProps)(_SingleStudent);
 
 export default SingleStudent;
