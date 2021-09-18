@@ -22,7 +22,6 @@ class CreateUniversity extends Component {
     const change = {};
     change[name] = value;
     this.setState(change);
-    console.log(this.props.history);
   }
 
   handleSubmit(ev) {
@@ -60,10 +59,6 @@ class CreateUniversity extends Component {
     );
   }
 }
-
-// const mapStateToProps = (state, ownProps) => {
-//   return state;
-// };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   createUniversity: (university) => {

@@ -108,7 +108,6 @@ class UpdateStudent extends Component {
 }
 
 const mapDispatchToProps = (dispatch, { history }) => {
-  console.log(`dispatch is: ${dispatch}`);
   return {
     updateStudent: (student) => {
       return dispatch(updateStudent(student, history));

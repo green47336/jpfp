@@ -81,4 +81,8 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   createStudent: (student) => dispatch(createStudent(student, history)),
 });
 
-export default connect((state) => state, mapDispatchToProps)(CreateStudent);
+export default connect(({ universities }) => {
+  return {
+    universities,
+  };
+}, mapDispatchToProps)(CreateStudent);
