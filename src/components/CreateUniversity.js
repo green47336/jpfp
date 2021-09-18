@@ -49,7 +49,9 @@ class CreateUniversity extends Component {
 
           <label htmlFor="slogan">Slogan: </label>
           <input name="slogan" value={slogan} onChange={onChange} />
-
+          <div>
+            <hr />
+          </div>
           <button disabled={!name} type="submit">
             Create
           </button>

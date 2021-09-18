@@ -16,15 +16,18 @@ const _Students = ({ students, universities, deleteStudent, history }) => {
               <Link to={`/students/${currentStudent.id}`}>
                 <img src={currentStudent.image}></img>
               </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  deleteStudent(currentStudent.id);
-                }}
-              >
-                X
-              </button>
+
               <ul>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      deleteStudent(currentStudent.id);
+                    }}
+                  >
+                    Delete Student
+                  </button>
+                </li>
                 <li>
                   {universities
                     .map((university) => {

@@ -27,15 +27,18 @@ const _Universities = ({
               <Link to={`/universities/${currentUniversity.id}`}>
                 <img src={currentUniversity.image}></img>
               </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  deleteUniversity(currentUniversity.id);
-                }}
-              >
-                X
-              </button>
+
               <ul>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      deleteUniversity(currentUniversity.id);
+                    }}
+                  >
+                    Delete University
+                  </button>
+                </li>
                 <li>
                   {`${currentUniversity.name} (${univEnrollmentLength} ${
                     univEnrollmentLength === 1 ? "enrollment" : "enrollments"

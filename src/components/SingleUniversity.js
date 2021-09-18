@@ -25,7 +25,7 @@ const _SingleUniversity = ({
 
   return (
     <div id="single-university-module">
-      <p>Details for {theUniversity.name}</p>
+      <h3>Details for {theUniversity.name}</h3>
       <ul>
         <li>
           <img src={theUniversity.image}></img>
@@ -45,6 +45,7 @@ const _SingleUniversity = ({
                     {student.firstName}
                   </Link>
                   <button
+                    id="unregister-button"
                     onClick={() => {
                       updateStudent({ ...student, universityId: NaN });
                     }}

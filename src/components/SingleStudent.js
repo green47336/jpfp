@@ -16,11 +16,9 @@ const _SingleStudent = ({ students, universities, history, match }) => {
     (university) => university.id === theStudent.universityId * 1
   );
 
-  //if (!theUniversity) return "Loading...";
-
   return (
     <div id="single-student-module">
-      <p>{`Details for ${theStudent.firstName}`}</p>
+      <h3>{`Details for ${theStudent.firstName}`}</h3>
       <ul>
         <li>
           <img src={theStudent.image}></img>

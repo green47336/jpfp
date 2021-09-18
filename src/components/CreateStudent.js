@@ -62,7 +62,9 @@ class CreateStudent extends Component {
               </option>
             ))}
           </select>
-
+          <div>
+            <hr />
+          </div>
           <button
             disabled={!firstName || !lastName || !gpa || !universityId}
             type="submit"

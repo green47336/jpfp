@@ -45,7 +45,8 @@ class UpdateUniversity extends Component {
 
     return (
       <div id="update-university-form">
-        <p>Update University</p>
+        <hr />
+        <h3>Update University</h3>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name: </label>
           <input name="name" value={name} onChange={onChange} />
@@ -58,7 +59,9 @@ class UpdateUniversity extends Component {
 
           <label htmlFor="slogan">Slogan: </label>
           <input name="slogan" value={slogan} onChange={onChange} />
-
+          <div>
+            <hr />
+          </div>
           <button type="submit">Update</button>
         </form>
       </div>

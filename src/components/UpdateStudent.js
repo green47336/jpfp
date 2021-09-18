@@ -92,7 +92,9 @@ class UpdateStudent extends Component {
               </option>
             ))}
           </select>
-
+          <div>
+            <hr />
+          </div>
           <button
             disabled={!firstName || !lastName || !universityId}
             type="submit"
