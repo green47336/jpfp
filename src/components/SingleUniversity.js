@@ -37,18 +37,22 @@ const _SingleUniversity = ({
       <div>
         Enrollees:
         <ul>
-          {theStudents.map((student) => (
-            <li key={student.id}>
-              <Link to={`/students/${student.id}`}>{student.firstName}</Link>
-              <button
-                onClick={() => {
-                  updateStudent({ ...student, universityId: NaN });
-                }}
-              >
-                Unregister
-              </button>
-            </li>
-          ))}
+          {theStudents.length === 0
+            ? "No students currently enrolled!"
+            : theStudents.map((student) => (
+                <li key={student.id}>
+                  <Link to={`/students/${student.id}`}>
+                    {student.firstName}
+                  </Link>
+                  <button
+                    onClick={() => {
+                      updateStudent({ ...student, universityId: NaN });
+                    }}
+                  >
+                    Unregister
+                  </button>
+                </li>
+              ))}
         </ul>
       </div>
       <UpdateUniversity history={history} university={theUniversity} />

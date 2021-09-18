@@ -26,16 +26,16 @@ const _Students = ({ students, universities, deleteStudent, history }) => {
               </button>
               <ul>
                 <li>
-                  {`${currentStudent.firstName} attends the ${universities
+                  {universities
                     .map((university) => {
                       if (
                         university.id * 1 ===
                         currentStudent.universityId * 1
                       ) {
-                        return university.name;
+                        return `${currentStudent.firstName} attends the ${university.name}.`;
                       }
                     })
-                    .join("")}.`}
+                    .join("")}
                 </li>
                 <li>{`Full name: ${currentStudent.firstName} ${currentStudent.lastName}`}</li>
                 <li>{`Email: ${currentStudent.email}`}</li>
