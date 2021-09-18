@@ -28,10 +28,15 @@ const _SingleUniversity = ({
       <h3>Details for {theUniversity.name}</h3>
       <ul>
         <li>
-          <img src={theUniversity.image}></img>
+          <img
+            src={
+              theUniversity.image ||
+              "https://www.clipartkey.com/mpngs/m/269-2699862_university-campus-icon.png"
+            }
+          ></img>
         </li>
-        <li>Slogan: {theUniversity.slogan}</li>
-        <li>Address: {theUniversity.address}</li>
+        <li>Slogan: {theUniversity.slogan || "No slogan set!"}</li>
+        <li>Address: {theUniversity.address || "No address set!"}</li>
       </ul>
 
       <div>

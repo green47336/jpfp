@@ -22,7 +22,12 @@ const _Universities = ({
           return (
             <div key={currentUniversity.id}>
               <Link to={`/universities/${currentUniversity.id}`}>
-                <img src={currentUniversity.image}></img>
+                <img
+                  src={
+                    currentUniversity.image ||
+                    "https://www.clipartkey.com/mpngs/m/269-2699862_university-campus-icon.png"
+                  }
+                ></img>
               </Link>
 
               <ul>

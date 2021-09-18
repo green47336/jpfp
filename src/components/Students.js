@@ -14,7 +14,12 @@ const _Students = ({ students, universities, deleteStudent, history }) => {
           return (
             <div key={currentStudent.id}>
               <Link to={`/students/${currentStudent.id}`}>
-                <img src={currentStudent.image}></img>
+                <img
+                  src={
+                    currentStudent.image ||
+                    "https://static.vecteezy.com/system/resources/thumbnails/000/511/962/small/57_Student.jpg"
+                  }
+                ></img>
               </Link>
 
               <ul>

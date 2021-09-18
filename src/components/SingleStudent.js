@@ -21,10 +21,15 @@ const _SingleStudent = ({ students, universities, history, match }) => {
       <h3>{`Details for ${theStudent.firstName}`}</h3>
       <ul>
         <li>
-          <img src={theStudent.image}></img>
+          <img
+            src={
+              theStudent.image ||
+              "https://static.vecteezy.com/system/resources/thumbnails/000/511/962/small/57_Student.jpg"
+            }
+          ></img>
         </li>
         <li>{`Full name: ${theStudent.firstName} ${theStudent.lastName}`}</li>
-        <li>{`Email: ${theStudent.email}`}</li>
+        <li>{`Email: ${theStudent.email || "No email set!"}`}</li>
         <li>{`GPA: ${theStudent.gpa}`}</li>
 
         {theUniversity ? (
