@@ -35,9 +35,10 @@ class CreateUniversity extends Component {
 
     return (
       <div id="university-form">
-        <p>Create New University</p>
+        <h3>Create New University</h3>
+        <p>Required field *</p>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name">Name: *</label>
           <input name="name" value={name} onChange={onChange} />
 
           <label htmlFor="image">Image URL: </label>
@@ -49,7 +50,9 @@ class CreateUniversity extends Component {
           <label htmlFor="slogan">Slogan: </label>
           <input name="slogan" value={slogan} onChange={onChange} />
 
-          <button type="submit">Create</button>
+          <button disabled={!name} type="submit">
+            Create
+          </button>
         </form>
       </div>
     );

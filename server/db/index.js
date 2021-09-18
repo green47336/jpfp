@@ -22,7 +22,7 @@ const syncAndSeed = async () => {
     address: "401 W Kennedy Blvd, Tampa, FL 33606",
     slogan: "Go Spartans!",
     image:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/University_of_Tampa_seal.svg/1200px-University_of_Tampa_seal.svg.png",
+      "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Tampa_Spartans_logo.svg/1200px-Tampa_Spartans_logo.svg.png",
   });
 
   const uf = await University.create({
