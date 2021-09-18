@@ -33,9 +33,14 @@ const _SingleStudent = ({ students, universities, history, match }) => {
         <li>{`GPA: ${theStudent.gpa}`}</li>
 
         {theUniversity ? (
-          <Link to={`/universities/${theUniversity.id}`}>
-            <li>{`Attends: ${theUniversity.name}`}</li>
-          </Link>
+          <li>
+            {"Attends: "}
+            {
+              <Link to={`/universities/${theUniversity.id}`}>
+                {theUniversity.name}
+              </Link>
+            }
+          </li>
         ) : (
           "Attends: Currently Unregistered"
         )}
