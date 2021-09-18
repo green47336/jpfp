@@ -90,7 +90,7 @@ export const createStudent = (student, history) => {
       type: CREATE_STUDENT,
       newStudent,
     });
-    history.push("/");
+    history.push(`/students/${newStudent.id}`);
   };
 };
 
@@ -104,7 +104,7 @@ export const createUniversity = (university, history) => {
       type: CREATE_UNIVERSITY,
       newUniversity,
     });
-    history.push("/");
+    history.push(`/universities/${newUniversity.id}`);
   };
 };
 
