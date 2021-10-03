@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "pg": "^8.6.0",
-    "sequelize": "^6.6.4"
+    "sequelize": "^6.6.4",
+    "ws": "^8.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

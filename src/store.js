@@ -3,6 +3,12 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import axios from "axios";
 
+const socket = new WebSocket(window.location.origin.replace("http", "ws"));
+socket.addEventListener("message", (ev) => {
+  const action = JSON.parse(ev.data);
+  store.dispatch(action);
+});
+
 const LOAD_STUDENTS = "LOAD_STUDENTS";
 const CREATE_STUDENT = "CREATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
@@ -86,6 +92,12 @@ export const fetchUniversities = () => {
 export const createStudent = (student, history) => {
   return async (dispatch) => {
     const { data: newStudent } = await axios.post("/api/students", student);
+    socket.send(
+      JSON.stringify({
+        type: CREATE_STUDENT,
+        newStudent,
+      })
+    );
     dispatch({
       type: CREATE_STUDENT,
       newStudent,
@@ -100,6 +112,12 @@ export const createUniversity = (university, history) => {
       "/api/universities",
       university
     );
+    socket.send(
+      JSON.stringify({
+        type: CREATE_UNIVERSITY,
+        newUniversity,
+      })
+    );
     dispatch({
       type: CREATE_UNIVERSITY,
       newUniversity,
@@ -111,6 +129,12 @@ export const createUniversity = (university, history) => {
 export const deleteStudent = (id, history) => {
   return async (dispatch) => {
     await axios.delete(`/api/students/${id}`);
+    socket.send(
+      JSON.stringify({
+        type: DELETE_STUDENT,
+        id: id * 1,
+      })
+    );
     dispatch({
       type: DELETE_STUDENT,
       id: id * 1,
@@ -121,6 +145,12 @@ export const deleteStudent = (id, history) => {
 export const deleteUniversity = (id, history) => {
   return async (dispatch) => {
     await axios.delete(`/api/universities/${id}`);
+    socket.send(
+      JSON.stringify({
+        type: DELETE_UNIVERSITY,
+        id: id * 1,
+      })
+    );
     dispatch({
       type: DELETE_UNIVERSITY,
       id: id * 1,
@@ -134,6 +164,12 @@ export const updateStudent = (student, history) => {
       `/api/students/${student.id}`,
       student
     );
+    socket.send(
+      JSON.stringify({
+        type: UPDATE_STUDENT,
+        updatedStudent,
+      })
+    );
     dispatch({
       type: UPDATE_STUDENT,
       updatedStudent,
@@ -146,6 +182,12 @@ export const updateUniversity = (university, history) => {
     const { data: updatedUniversity } = await axios.put(
       `/api/universities/${university.id}`,
       university
+    );
+    socket.send(
+      JSON.stringify({
+        type: UPDATE_UNIVERSITY,
+        updatedUniversity,
+      })
     );
     dispatch({
       type: UPDATE_UNIVERSITY,
